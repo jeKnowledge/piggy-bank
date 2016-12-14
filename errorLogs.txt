@@ -1,0 +1,2 @@
+Error #1 - cannot find module invariant
+Solution: npm install -g invariant
