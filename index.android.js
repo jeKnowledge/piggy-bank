@@ -1,53 +1,51 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
-
 import React, { Component } from 'react';
+import Content from './Content';
+
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
-  View
+	AppRegistry,
+	StyleSheet,
+	Text,
+	View
 } from 'react-native';
 
 export default class piggyBank extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
-  }
+	render() {
+		return (
+			<Navigator
+				initialRoute={{ index: 0 }}
+
+				renderScene={(route, navigator) =>
+					<View style=styles.head>
+						<Text>Piggy Bank</Text>
+					</View>
+					<Content
+						nextScene = {() => {
+							navigator.push {
+								index: route.index + 1,
+							}
+						}}
+
+						prevScene = {() => {
+							if(route.index != 0) {
+								navigator.pop();
+							}
+						}}
+
+						index = route.index;
+					/>
+				}
+			/>
+		);
+	}
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+	head: {
+		height: 5%;
+		backgroundColor: #6F297F;
+		color: #EC9FFF;
+		textWeight: bolder;
+	},
 });
 
 AppRegistry.registerComponent('piggyBank', () => piggyBank);
