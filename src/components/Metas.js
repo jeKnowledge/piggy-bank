@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import Meta from './Meta';
 
 class Metas extends Component {
 	constructor(props) {
@@ -20,7 +21,7 @@ class Metas extends Component {
 	render() {
 		return (
 			<View>
-				{ this.renderData() }
+				<Meta>{ this.renderData() }</Meta>
 			</View>
 		);
 	}
