@@ -1,27 +1,25 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
 import Meta from './Meta';
+import Button from './Button';
 
 class Metas extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			metas: []
-		};
-	}
-
 	componentWillMount() {
 		this.setState({ metas: this.props.data });
 	}
 
 	renderData() {
-		return this.state.metas.map(meta => <Text>{ meta }</Text>);
+		return this.state.metas.map(meta => <Meta key={Math.random()} name={meta} />);
 	}
 
 	render() {
 		return (
 			<View>
-				<Meta>{ this.renderData() }</Meta>
+				{ this.renderData() }
+				<View>
+					<Text>{this.state.metas.length} Metas</Text>
+					<Button text='+' color='#8783FF' fontColor='white' size='50' fontSize='25' />
+				</View>
 			</View>
 		);
 	}

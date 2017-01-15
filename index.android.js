@@ -1,51 +1,17 @@
-import React, { Component } from 'react';
-import Content from './Content';
+import React from 'react';
+import { AppRegistry, View } from 'react-native';
+import Header from './src/components/Header.js';
+import Metas from './src/components/Metas';
 
-import {
-	AppRegistry,
-	StyleSheet,
-	Text,
-	View
-} from 'react-native';
+const App = () => {
+	const metas = ['Meta 1', 'Meta 2', 'Meta 3'];
 
-export default class piggyBank extends Component {
-	render() {
-		return (
-			<Navigator
-				initialRoute={{ index: 0 }}
+	return (
+			<View style={{ backgroundColor: '#D9D9D9', height: 1000 }} >
+			<Header name="Piggy Bank" />
+			<Metas data={metas} />
+		</View>
+	);
+};
 
-				renderScene={(route, navigator) =>
-					<View style=styles.head>
-						<Text>Piggy Bank</Text>
-					</View>
-					<Content
-						nextScene = {() => {
-							navigator.push {
-								index: route.index + 1,
-							}
-						}}
-
-						prevScene = {() => {
-							if(route.index != 0) {
-								navigator.pop();
-							}
-						}}
-
-						index = route.index;
-					/>
-				}
-			/>
-		);
-	}
-}
-
-const styles = StyleSheet.create({
-	head: {
-		height: 5%;
-		backgroundColor: #6F297F;
-		color: #EC9FFF;
-		textWeight: bolder;
-	},
-});
-
-AppRegistry.registerComponent('piggyBank', () => piggyBank);
+AppRegistry.registerComponent('piggyBank', () => App);
