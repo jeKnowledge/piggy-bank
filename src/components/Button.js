@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, TouchableNativeFeedback } from 'react-native';
 
 class Button extends Component {
 	componentWillMount() {
@@ -22,19 +22,22 @@ class Button extends Component {
 					+ Math.floor(parseInt(this.props.fontSize, 10) / 10) + 1,
 				color: this.props.fontColor
 			},
-			text: this.props.text
+			text: this.props.text,
+			onButtonPress: this.props.onPress
 		});
 	}
 
 	render() {
-		const { buttonStyle, centerHorizontally, textStyle, text } = this.state;
+		const { buttonStyle, centerHorizontally, textStyle, text, onButtonPress } = this.state;
 
 		return (
-			<View style={buttonStyle}>
-				<View style={centerHorizontally}>
-					<Text style={textStyle}>{text}</Text>
+			<TouchableNativeFeedback onPress={onButtonPress}>
+				<View style={buttonStyle}>
+					<View style={centerHorizontally}>
+						<Text style={textStyle}>{text}</Text>
+					</View>
 				</View>
-			</View>
+			</TouchableNativeFeedback>
 		);
 	}
 }
