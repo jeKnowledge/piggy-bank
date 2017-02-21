@@ -1,17 +1,14 @@
 import React from 'react';
-import {
-  View,
-  Text,
-} from 'react-native';
+import { View, Text } from 'react-native';
 
 const Header = (props) => {
-  const { textStyle, viewStyle } = styles;
+	const { textStyle, viewStyle } = styles;
 
-  return (
-    <View style={viewStyle}>
-      <Text style={textStyle}>{ props.name }</Text>
-    </View>
-  );
+	return (
+		<View style={viewStyle}>
+			<Text style={textStyle}>{ props.name }</Text>
+		</View>
+	);
 };
 
 const styles = {
@@ -22,13 +19,11 @@ const styles = {
 	},
 	viewStyle: {
 		paddingLeft: 20,
-		backgroundColor: '#4B077D',
+		backgroundColor: '#673AB7',
 		height: 60,
 		flexDirection: 'column',
 		justifyContent: 'space-around',
-		shadowColor: 'black',
-		shadowOffset: { width: 0, height: 5 },
-		shadowOpacity: 0.5
+		elevation: 5
 	},
 };
 

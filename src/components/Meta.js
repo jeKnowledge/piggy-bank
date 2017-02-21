@@ -23,7 +23,8 @@ const styles = {
 		height: 50,
 		borderRadius: 5,
 		flexDirection: 'column',
-		justifyContent: 'space-around'
+		justifyContent: 'space-around',
+		elevation: 3
 	}
 };
 

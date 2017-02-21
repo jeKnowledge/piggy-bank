@@ -13,15 +13,20 @@ const App = () => {
 				switch (route.id) {
 					case 'Metas':
 						return (
-							<Core data={<Metas data={metas} navigator={navigator} />} />
+							<Core
+								data={metas}
+								navigator={navigator}
+								route={route}
+								renederData={<Metas data={metas} />}
+							/>
 						);
 					case 'Test':
 						return (
-							<Core data={<Text>Button pressed</Text>} />
+							<Core renderData={<Text>Testing Ground</Text>} />
 						);
 					default:
 						return (
-							<Core data={<Text>No data was passed</Text>} />
+							<Core renderData={<Text>No data was passed</Text>} />
 						);
 				}
 			}}
