@@ -1,14 +1,29 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
+const generateShadow = ( platform ) => {
+	switch(platform) {
+		case 'android':
+			return { elevation: 5 };
+		case 'ios':
+			return 0;
+	}
+};
+
 const Header = (props) => {
 	const { textStyle, viewStyle } = styles;
 
 	return (
-		<View style={viewStyle}>
-			<Text style={textStyle}>{ props.name }</Text>
+		<View style={ [ viewStyle, { backgroundColor: props.color }, generateShadow(props.platform) ] }>
+			<Text style={textStyle}>{ props.text }</Text>
 		</View>
 	);
+};
+
+Header.propTypes = {
+	color: React.PropTypes.string.isRequired,
+	text: React.PropTypes.string.isRequired,
+	platform: React.PropTypes.string.isRequired
 };
 
 const styles = {
@@ -19,12 +34,10 @@ const styles = {
 	},
 	viewStyle: {
 		paddingLeft: 20,
-		backgroundColor: '#673AB7',
-		height: 60,
+		height: 55,
 		flexDirection: 'column',
-		justifyContent: 'space-around',
-		elevation: 5
-	},
+		justifyContent: 'space-around'
+	}
 };
 
 export default Header;

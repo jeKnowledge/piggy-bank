@@ -3,14 +3,8 @@ import { ScrollView } from 'react-native';
 import Meta from './Meta';
 
 class Metas extends Component {
-	componentWillMount() {
-		this.setState({
-			metas: this.props.data,
-		});
-	}
-
 	renderData = () => {
-		return this.state.metas.map(meta => <Meta key={Math.random()} name={meta} />);
+		return this.props.data.map(meta => <Meta key={Math.random()} name={meta} />);
 	}
 
 	render() {
@@ -21,5 +15,9 @@ class Metas extends Component {
 		);
 	}
 }
+
+Metas.propTypes = {
+	data: React.PropTypes.array.isRequired,
+};
 
 export default Metas;
