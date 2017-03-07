@@ -9,7 +9,7 @@ export default class App extends Component {
 				initialRoute={{ id: 'home' }}
 				renderScene={
 					(route, navigator) => {
-						return <Router platform="android" route={route} navigator={navigator} />
+						return <Router route={route} navigator={navigator} />
 					}
 				}
 			/>

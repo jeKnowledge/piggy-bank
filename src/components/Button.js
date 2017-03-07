@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableNativeFeedback } from 'react-native';
+import { View, Text, TouchableNativeFeedback, Platform } from 'react-native';
 
 class Button extends Component {
 	generateComponent() {
 		const { buttonStyleAndroid, textStyle } = this.styles;
 		const { text, onPress, style } = this.props;
 
-		switch (this.props.platform) {
+		switch (Platform.OS) {
 			case 'android':
 				return (
 					<TouchableNativeFeedback onPress={onPress}>

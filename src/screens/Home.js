@@ -15,7 +15,6 @@ export default class Home extends Component {
 				<Metas data={ this.state.metas } />
 				<Button
 					text="+"
-					platform={ this.props.platform }
 					onPress={ this._handleButtonPress }
 					size='50'
 					fontSize='25'
@@ -34,7 +33,3 @@ export default class Home extends Component {
 
 	}
 }
-
-Home.propTypes = {
-	platform: React.PropTypes.string.isRequired
-};

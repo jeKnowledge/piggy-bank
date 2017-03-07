@@ -1,20 +1,29 @@
 import Home from '../screens/Home';
 import React from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import Header from '../components/Header';
 
 const Router = (props) => {
 	return (
 		<View style={{ flex: 1 }}>
-			<Header platform={ props.platform } text="Piggy Bank" color='#673ab7' />
-			<Home platform={props.platform }/>
+			<Header text="Piggy Bank" color='#673ab7' />
+			{ displayRoute(props.route.id) }
 		</View>
 	);
 };
 
+const displayRoute = (route) => {
+	switch(route) {
+		case 'home':
+			return (<Home />);
+		default:
+			return <Text>UNDEFINED ROUTE</Text>;
+	}
+}
+
 Router.propTypes = {
-	platform: React.PropTypes.string.isRequired,
-	navigator: React.PropTypes.object.isRequired
+	navigator: React.PropTypes.object.isRequired,
+	route: React.PropTypes.object.isRequired
 };
 
 export default Router;

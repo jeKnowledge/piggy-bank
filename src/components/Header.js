@@ -1,20 +1,20 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Platform } from 'react-native';
 
-const generateShadow = ( platform ) => {
-	switch(platform) {
+const generateShadow = () => {
+	switch(Platform.OS) {
 		case 'android':
 			return { elevation: 5 };
 		case 'ios':
 			return 0;
 	}
-};
+}
 
 const Header = (props) => {
 	const { textStyle, viewStyle } = styles;
 
 	return (
-		<View style={ [ viewStyle, { backgroundColor: props.color }, generateShadow(props.platform) ] }>
+		<View style={ [ viewStyle, { backgroundColor: props.color }, generateShadow() ] }>
 			<Text style={textStyle}>{ props.text }</Text>
 		</View>
 	);
@@ -23,7 +23,6 @@ const Header = (props) => {
 Header.propTypes = {
 	color: React.PropTypes.string.isRequired,
 	text: React.PropTypes.string.isRequired,
-	platform: React.PropTypes.string.isRequired
 };
 
 const styles = {
