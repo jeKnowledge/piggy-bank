@@ -6,7 +6,7 @@ export default class App extends Component {
 	render() {
 		return (
 			<Navigator
-				initialRoute={{ id: 'home' }}
+				initialRoute={{ id: 'MetaForm' }}
 				renderScene={
 					(route, navigator) => {
 						return <Router route={route} navigator={navigator} />

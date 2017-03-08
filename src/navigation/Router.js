@@ -1,21 +1,22 @@
 import Home from '../screens/Home';
+import MetaForm from '../screens/MetaForm';
 import React from 'react';
 import { View, Text } from 'react-native';
-import Header from '../components/Header';
 
 const Router = (props) => {
 	return (
 		<View style={{ flex: 1 }}>
-			<Header text="Piggy Bank" color='#673ab7' />
-			{ displayRoute(props.route.id) }
+			{ displayRoute(props.route.id, props.navigator) }
 		</View>
 	);
 };
 
-const displayRoute = (route) => {
+const displayRoute = (route, navigator) => {
 	switch(route) {
-		case 'home':
-			return (<Home />);
+		case 'Home':
+			return (<Home navigator={ navigator } />);
+		case 'MetaForm':
+			return (<MetaForm navigator={ navigator } />);
 		default:
 			return <Text>UNDEFINED ROUTE</Text>;
 	}
