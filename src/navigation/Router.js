@@ -1,5 +1,4 @@
-import GoalForm from '../screens/GoalForm';
-import Home from '../screens/Home';
+import { Home, GoalForm }  from '../screens';
 import React from 'react';
 import { View, Text } from 'react-native';
 

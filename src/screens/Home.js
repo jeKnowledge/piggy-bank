@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { Header, Button, GoalList } from '../components';
 
 export default class Home extends Component {
-	createGoal = () => {
+	createGoal() {
 		this.props.navigator.push({ id: "GoalForm" })
 	}
 
@@ -14,7 +14,7 @@ export default class Home extends Component {
 				<GoalList />
 				<Button
 					text="+"
-					onPress={ this.createGoal }
+					onPress={ this.createGoal.bind(this) }
 					size='50'
 					fontSize='25'
 					color='#FFD600'

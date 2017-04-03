@@ -10,7 +10,7 @@ class GoalList extends Component {
 
 	render() {
 		return (
-			<ScrollView>
+			<ScrollView contentContainerStyle={{ marginTop: 10 }}>
 				{ this.renderData() }
 			</ScrollView>
 		);

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text,View } from 'react-native';
+import { Text } from 'react-native';
+import Card from './Card';
 
 const Goal = (props) => {
 	return (
-		<View style={styles.viewStyle}>
+		<Card>
 			<Text style={styles.textStyle}>{ props.name }</Text>
-		</View>
+		</Card>
 	);
 };
 

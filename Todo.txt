@@ -1,11 +1,9 @@
 Urgent:
-Add GoalForm sender button
-Create Card component
-Create index.js in screen
 Add backButton to GoalForm
-Create addGoal action
+Change GoalForm button icon
 
 Future improvements:
 Verify if react-native-elements is needed
 Change GoalForm to be a popup
 Change button TouchableFeedback to TouchableWithoutFeedback
+Check if there's a goal with the same name as the one we want to add
