@@ -1,6 +1,11 @@
-Verificar se e necessario react-native-elements
-back button para GoalForm
-action para adicionar goal
-mudar icones butoes
-mudar TouchableFeedback para TouchableWithoutFeedback
-mudar GoalForm para ser um popup em vez de um screen novo
+Urgent:
+Add GoalForm sender button
+Create Card component
+Create index.js in screen
+Add backButton to GoalForm
+Create addGoal action
+
+Future improvements:
+Verify if react-native-elements is needed
+Change GoalForm to be a popup
+Change button TouchableFeedback to TouchableWithoutFeedback
