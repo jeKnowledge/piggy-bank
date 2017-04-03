@@ -1,27 +1,20 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import Metas from '../components/Metas';
-import Button from '../components/Button';
-import Header from '../components/Header';
+import { Header, Button, GoalList } from '../components';
 
 export default class Home extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { metas: ['Meta 1', 'Meta 2', 'Meta 3'] };
-	}
-
-	createMeta = () => {
-		this.props.navigator.push({ id: "MetaForm" })
+	createGoal = () => {
+		this.props.navigator.push({ id: "GoalForm" })
 	}
 
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
-				<Header text="Piggy Bank" color='#673ab7' />
-				<Metas data={ this.state.metas } />
+				<Header text="Piggy Bank" color='#3f51b5' />
+				<GoalList />
 				<Button
 					text="+"
-					onPress={ this.createMeta }
+					onPress={ this.createGoal }
 					size='50'
 					fontSize='25'
 					color='#FFD600'
@@ -35,7 +28,3 @@ export default class Home extends Component {
 		);
 	}
 }
-
-Home.propTypes = {
-	navigator: React.PropTypes.object.isRequired
-};

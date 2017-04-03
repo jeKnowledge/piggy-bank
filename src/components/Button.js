@@ -49,15 +49,4 @@ class Button extends Component {
 	}
 }
 
-Button.propTypes = {
-	text: React.PropTypes.string.isRequired,
-	platform: React.PropTypes.string.isRequired,
-	size: React.PropTypes.string.isRequired,
-	color: React.PropTypes.string.isRequired,
-	fontColor: React.PropTypes.string.isRequired,
-	fontSize: React.PropTypes.string.isRequired,
-	onPress: React.PropTypes.func.isRequired,
-	style: React.PropTypes.object.isRequired
-};
-
 export default Button;

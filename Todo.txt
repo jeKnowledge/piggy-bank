@@ -1,0 +1,6 @@
+Verificar se e necessario react-native-elements
+back button para GoalForm
+action para adicionar goal
+mudar icones butoes
+mudar TouchableFeedback para TouchableWithoutFeedback
+mudar GoalForm para ser um popup em vez de um screen novo
