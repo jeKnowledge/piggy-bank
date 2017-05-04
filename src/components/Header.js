@@ -1,7 +1,19 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { View, Text, Platform } from 'react-native';
 
-const generateShadow = () => {
+class Header extends Component {
+	render() {
+		const { textStyle, viewStyle } = styles;
+
+		return (
+			<View style={ [ viewStyle, { backgroundColor: this.props.color }, generateShadow() ] }>
+				<Text style={textStyle}>{ this.props.text }</Text>
+			</View>
+		);
+	}
+}
+
+function generateShadow() {
 	switch(Platform.OS) {
 		case 'android':
 			return { elevation: 5 };
@@ -9,21 +21,6 @@ const generateShadow = () => {
 			return 0;
 	}
 }
-
-const Header = (props) => {
-	const { textStyle, viewStyle } = styles;
-
-	return (
-		<View style={ [ viewStyle, { backgroundColor: props.color }, generateShadow() ] }>
-			<Text style={textStyle}>{ props.text }</Text>
-		</View>
-	);
-};
-
-Header.propTypes = {
-	color: React.PropTypes.string.isRequired,
-	text: React.PropTypes.string.isRequired,
-};
 
 const styles = {
 	textStyle: {

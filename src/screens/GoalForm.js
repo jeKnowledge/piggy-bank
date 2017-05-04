@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Header, Card, Button } from '../components';
+import { Header, Card, RoundButton } from '../components';
 import { TextInput } from '@shoutem/ui';
 import { connect } from 'react-redux';
 import { titleChanged, updateGoals } from '../actions';
@@ -35,7 +35,7 @@ class GoalForm extends Component {
 						/>
 					</View>
 				</Card>
-				<Button
+				<RoundButton
 					text="+"
 					onPress={ this.updateGoals.bind(this) }
 					size='50'
@@ -67,9 +67,9 @@ class GoalForm extends Component {
 }
 
 const mapStateToProps = state => {
-	return {
-		title: state.goalsForm.title
-	};
+  let { title } = state.goalsForm;
+
+	return { title };
 };
 
 export default connect(mapStateToProps, { titleChanged, updateGoals }) (GoalForm);

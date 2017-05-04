@@ -1,37 +1,36 @@
 import React, { Component } from 'react';
-import { View, Platform } from 'react-native';
+import { TouchableWithoutFeedback, Platform, View } from 'react-native';
 
 class Card extends Component {
-	generateComponent() {
-		const { cardStyleAndroid } = this.styles;
-		switch (Platform.OS) {
-			case 'android':
-				return (
-					<View style={ [ cardStyleAndroid, this.props.style ] }>
-						{ this.props.children }
-					</View>
-				);
-			case 'ios':
-				return 0;
-		}
-	}
-
 	render() {
+    let { onPress, style } = this.props;
 		return (
-			<View style={{ flex: 1 }}>
-				{ this.generateComponent() }
-			</View>
+			<TouchableWithoutFeedback style={{ flex: 1 }} onPress={onPress}>
+				<View style={ [ generateStyle(), style ] }>
+					{ this.props.children }
+				</View>
+			</TouchableWithoutFeedback>
 		);
 	}
+}
 
-	styles = {
-		cardStyleAndroid: {
-			backgroundColor: 'white',
-			elevation: 3,
-			marginVertical: 7,
-			marginHorizontal: 15,
-			padding: 15
-		}
+function generateStyle() {
+	const { cardStyleAndroid } = styles;
+	switch (Platform.OS) {
+		case 'android':
+			return cardStyleAndroid;
+		case 'ios':
+			return 0;
+	}
+}
+
+const styles = {
+	cardStyleAndroid: {
+		backgroundColor: 'white',
+		elevation: 3,
+		marginVertical: 7,
+		marginHorizontal: 15,
+		padding: 15
 	}
 }
 
