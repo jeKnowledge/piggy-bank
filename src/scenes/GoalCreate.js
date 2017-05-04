@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
-import { Header, Card, RoundButton } from '../components';
+import { Card, RoundButton } from '../components';
 import { TextInput } from '@shoutem/ui';
 import { connect } from 'react-redux';
 import { titleChanged, updateGoals } from '../actions';
+import { Actions } from 'react-native-router-flux';
 
-class GoalForm extends Component {
+// TODO: Create action to to change form state that recieves object
+
+class GoalCreate extends Component {
 	onTitleChange(text) {
 		this.props.titleChanged(text);
 	}
@@ -14,13 +17,12 @@ class GoalForm extends Component {
 		let goal = { name: this.props.title };
 		this.props.updateGoals(goal);
 		this.props.titleChanged('');
-		this.props.navigator.push({ id: "Home" })
+		Actions.goalList();
 	}
 
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
-				<Header text="New Goal" color='#3f51b5' />
 				<Card style={{ marginTop: 10 }}>
 					<View style={[ this.styles.nameGoalContainer ]}>
 						<View style={ [this.styles.center, { marginRight: 10 }] }>
@@ -72,4 +74,4 @@ const mapStateToProps = state => {
 	return { title };
 };
 
-export default connect(mapStateToProps, { titleChanged, updateGoals }) (GoalForm);
+export default connect(mapStateToProps, { titleChanged, updateGoals }) (GoalCreate);

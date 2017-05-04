@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Header, RoundButton, List } from '../components';
+import { RoundButton, List } from '../components';
 import { connect } from 'react-redux';
+import { Actions } from 'react-native-router-flux';
 
-class Home extends Component {
+class GoalList extends Component {
 	createGoal() {
-		this.props.navigator.push({ id: "GoalForm" })
+    Actions.goalCreate();
 	}
 
   onItemPress() {
@@ -15,7 +16,6 @@ class Home extends Component {
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
-				<Header text="Piggy Bank" color='#3f51b5' />
 				<List items={this.props.goals} onItemPress={this.onItemPress}/>
 				<RoundButton
 					text="+"
@@ -39,4 +39,4 @@ const mapStateToProps = state => {
   return { goals };
 };
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps)(GoalList);

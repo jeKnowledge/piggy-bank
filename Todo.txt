@@ -1,9 +1,0 @@
-Urgent:
-Add backButton to GoalForm
-Change GoalForm button icon
-
-Future improvements:
-Verify if react-native-elements is needed
-Change GoalForm to be a popup
-Change button TouchableFeedback to TouchableWithoutFeedback
-Check if there's a goal with the same name as the one we want to add
