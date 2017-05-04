@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { RoundButton, List } from '../components';
+import { RoundButton, List, Goal } from '../components';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
 
@@ -9,14 +9,22 @@ class GoalList extends Component {
     Actions.goalCreate();
 	}
 
-  onItemPress() {
-    console.log(this.props.name);
+  onGoalPress() {
+    console.log(this.props.value);
+  }
+
+  renderData() {
+    let counter = -1;
+    return this.props.goals.map(goal => {
+      ++counter;
+      return <Goal key={counter} onPress={this.onGoalPress} value={goal.name} />
+    });
   }
 
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
-				<List items={this.props.goals} onItemPress={this.onItemPress}/>
+				<List data={this.renderData()}/>
 				<RoundButton
 					text="+"
 					onPress={ this.createGoal.bind(this) }

@@ -1,4 +1,4 @@
 import GoalCreate from './GoalCreate';
-import GoalList from './GoalList';
+import GoalShow from './GoalShow';
 
-export { GoalCreate, GoalList };
+export { GoalCreate, GoalShow };

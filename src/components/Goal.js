@@ -2,11 +2,11 @@ import React, { Component } from 'react';
 import { Text } from 'react-native';
 import Card from './Card';
 
-class ListItem extends Component {
+export default class Goal extends Component {
   render() {
     return (
       <Card onPress={this.props.onPress.bind(this)}>
-        <Text style={styles.textStyle}>{ this.props.name }</Text>
+        <Text style={styles.textStyle}>{ this.props.value }</Text>
       </Card>
     );
   }
@@ -19,5 +19,3 @@ const styles = {
 		fontWeight: 'bold'
 	}
 };
-
-export default ListItem;

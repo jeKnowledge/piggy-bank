@@ -1,7 +1,11 @@
 import RoundButton from './RoundButton';
-import ListItem from './ListItem';
+import Goal from './Goal';
 import List from './List';
 import Header from './Header';
 import Card from './Card';
+import InputCard from './InputCard';
+import GoalForm from './GoalForm';
 
-export { RoundButton, ListItem, List, Header, Card };
+export {
+  RoundButton, Goal, List, Header, Card, InputCard, GoalForm
+};

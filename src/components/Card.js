@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableWithoutFeedback, Platform, View } from 'react-native';
 
-class Card extends Component {
+export default class Card extends Component {
 	render() {
     let { onPress, style } = this.props;
 		return (
@@ -32,6 +32,4 @@ const styles = {
 		marginHorizontal: 15,
 		padding: 15
 	}
-}
-
-export default Card;
+};
