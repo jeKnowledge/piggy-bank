@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { List, InputCard } from '../components';
+import { List, InputCard } from './common';
 import { connect } from 'react-redux';
 import { titleChanged } from '../actions/formActions';
 

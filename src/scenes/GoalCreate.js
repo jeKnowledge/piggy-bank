@@ -8,8 +8,7 @@ import { Actions } from 'react-native-router-flux';
 
 class GoalCreate extends Component {
 	updateGoals() {
-		let goal = { name: this.props.title };
-		this.props.updateGoals(goal);
+		this.props.updateGoals(this.props.goalForm);
 		this.props.resetForm();
 		Actions.goalShow();
 	}
@@ -35,4 +34,10 @@ class GoalCreate extends Component {
 	}
 }
 
-export default connect(null, { updateGoals, resetForm }) (GoalCreate);
+const mapStateToProps = (state) => {
+  let { goalForm } = state;
+
+  return { goalForm };
+};
+
+export default connect(mapStateToProps, { updateGoals, resetForm }) (GoalCreate);

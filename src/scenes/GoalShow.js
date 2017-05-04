@@ -17,7 +17,7 @@ class GoalList extends Component {
     let counter = -1;
     return this.props.goals.map(goal => {
       ++counter;
-      return <Goal key={counter} onPress={this.onGoalPress} value={goal.name} />
+      return <Goal key={counter} onPress={this.onGoalPress} value={goal.title} />
     });
   }
 

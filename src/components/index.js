@@ -1,11 +1,12 @@
-import RoundButton from './RoundButton';
+import RoundButton from './common/RoundButton';
+import List from './common/List';
+import Card from './common/Card';
+import InputCard from './common/InputCard';
+
 import Goal from './Goal';
-import List from './List';
-import Header from './Header';
-import Card from './Card';
-import InputCard from './InputCard';
 import GoalForm from './GoalForm';
 
 export {
-  RoundButton, Goal, List, Header, Card, InputCard, GoalForm
+  Goal, GoalForm,
+  RoundButton, List, Card, InputCard
 };

@@ -11,6 +11,6 @@ export default (state = INITIAL_STATE, action) => {
     case RESET_FORM:
       return { ...state, ...action.payload };
 		default:
-			return state
+			return state;
 	}
 };
