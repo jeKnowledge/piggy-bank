@@ -6,11 +6,11 @@ class RoundButton extends Component {
     const { buttonStyle, textStyle } = this.styles;
 		const { text, onPress, style } = this.props;
 		return (
-			<View style={[ buttonStyle, style ]}>
         <TouchableWithoutFeedback onPress={onPress}>
+          <View style={[ buttonStyle, style ]}>
             <Text style={textStyle}>{text}</Text>
+            </View>
         </TouchableWithoutFeedback>
-			</View>
 		);
 	}
 

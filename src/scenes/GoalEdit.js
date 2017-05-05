@@ -14,15 +14,11 @@ class GoalList extends Component {
   }
 
   renderData() {
-    let out = [];
-    if (this.props.goals == null) {
-      return out;
-    } else {
-      for (let key in this.props.goals) {
-        out.push(<Goal key={key} onPress={this.onGoalPress} value={this.props.goals[key].title} />)
-      }
-      return out;
-    }
+    let counter = -1;
+    return this.props.goals.map(goal => {
+      ++counter;
+      return <Goal key={counter} onPress={this.onGoalPress} value={goal.title} />
+    });
   }
 
 	render() {

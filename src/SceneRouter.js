@@ -19,10 +19,11 @@ const styles = {
 	textStyle: {
 		color: 'white',
 		fontWeight: 'bold',
-		fontSize: 20
+    fontSize: 20
 	},
 	headerStyle: {
     backgroundColor: headerColor,
+    height: 60
 	},
   sceneStyle: {
     paddingTop: 50

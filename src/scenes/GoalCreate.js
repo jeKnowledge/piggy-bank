@@ -10,7 +10,7 @@ class GoalCreate extends Component {
 	updateGoals() {
 		this.props.updateGoals(this.props.goalForm);
 		this.props.resetForm();
-		Actions.goalShow();
+		Actions.pop();
 	}
 
 	render() {

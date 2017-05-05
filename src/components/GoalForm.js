@@ -11,7 +11,7 @@ class GoalForm extends Component {
 
   renderData() {
     return [
-      <InputCard onChangeText={this.onTitleChangeText.bind(this)} placeholder='Buy a new graphics card'/>
+      <InputCard key='title' onChangeText={this.onTitleChangeText.bind(this)} placeholder='Buy a new graphics card'/>
     ];
   }
 
