@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { RoundButton, GoalForm } from '../components';
+import { Button, GoalForm } from '../components';
 import { connect } from 'react-redux';
 import { updateGoals } from '../actions/goalsActions';
 import { resetForm } from '../actions/formActions';
@@ -9,7 +9,7 @@ import { Actions } from 'react-native-router-flux';
 class GoalCreate extends Component {
 	updateGoals() {
 		this.props.updateGoals(this.props.goalForm);
-		this.props.resetForm();
+    this.props.resetForm();
 		Actions.pop();
 	}
 
@@ -17,17 +17,10 @@ class GoalCreate extends Component {
 		return (
 			<View style={{ flex: 1 }}>
         <GoalForm />
-				<RoundButton
-					text="+"
+				<Button
+					text='Create'
 					onPress={ this.updateGoals.bind(this) }
-					size='50'
-					fontSize='25'
-					color='#FFD600'
-					fontColor='white'
-					style= {{
-						bottom: 20,
-						right: 20
-					}}
+          position='bottom'
 				/>
 			</View>
 		);

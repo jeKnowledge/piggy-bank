@@ -6,7 +6,7 @@ export default class Goal extends Component {
   render() {
     return (
       <Card onPress={this.props.onPress.bind(this)}>
-        <Text style={styles.textStyle}>{ this.props.value }</Text>
+        <Text style={styles.textStyle}>{ this.props.title }</Text>
       </Card>
     );
   }

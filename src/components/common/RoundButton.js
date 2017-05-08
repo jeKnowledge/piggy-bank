@@ -4,32 +4,55 @@ import { View, Text, TouchableWithoutFeedback } from 'react-native';
 class RoundButton extends Component {
 	render() {
     const { buttonStyle, textStyle } = this.styles;
-		const { text, onPress, style } = this.props;
+		const { text, onPress } = this.props;
 		return (
         <TouchableWithoutFeedback onPress={onPress}>
-          <View style={[ buttonStyle, style ]}>
+          <View style={[ buttonStyle, this.positioning() ]}>
             <Text style={textStyle}>{text}</Text>
-            </View>
+          </View>
         </TouchableWithoutFeedback>
 		);
 	}
+
+  positioning() {
+    switch(this.props.position) {
+      case 'bottom-right':
+        return {
+          bottom: 20,
+          right: 20
+        }
+      case 'bottom-left':
+        return {
+          bottom: 20,
+          left: 20
+        }
+      case 'top-right':
+        return {
+          top: 20,
+          right: 20
+        }
+      case 'top-left':
+        return {
+          top: 20,
+          left: 20
+        }
+    }
+  }
 
 	styles = {
 		buttonStyle: {
 			borderRadius: 100,
 			justifyContent: 'center',
-			height: parseInt(this.props.size, 10),
-			width: parseInt(this.props.size, 10),
-			backgroundColor: this.props.color,
+			height: 50,
+			width: 50,
 			elevation: 3,
-			position: 'absolute'
+			position: 'absolute',
+      backgroundColor: this.props.color
 		},
 		textStyle: {
 			fontWeight: 'bold',
-			fontSize: parseInt(this.props.fontSize, 10),
-			lineHeight: parseInt(this.props.fontSize, 10)
-				+ Math.floor(parseInt(this.props.fontSize, 10) / 10) + 1,
-			color: this.props.fontColor,
+			fontSize: 25,
+			color: 'white',
 			textAlign: 'center'
 		}
 	}

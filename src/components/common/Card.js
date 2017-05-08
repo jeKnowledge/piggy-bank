@@ -27,9 +27,9 @@ function generateStyle() {
 const styles = {
 	cardStyleAndroid: {
 		backgroundColor: 'white',
-		elevation: 3,
 		marginVertical: 7,
 		marginHorizontal: 15,
-		padding: 15
+		padding: 10,
+    elevation: 3
 	}
 };

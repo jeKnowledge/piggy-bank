@@ -3,6 +3,8 @@ import { View } from 'react-native';
 import { RoundButton, List, Goal } from '../components';
 import { connect } from 'react-redux';
 import { Actions } from 'react-native-router-flux';
+import { sha256 } from 'hash.js';
+import { resetForm } from '../actions/formActions';
 
 class GoalList extends Component {
 	createGoal() {
@@ -10,7 +12,9 @@ class GoalList extends Component {
 	}
 
   onGoalPress() {
-    console.log(this.props.value);
+    let goalCode = sha256().update(this.props.title).digest('hex');
+    this.props.resetForm(this.props.goals[goalCode]);
+    Actions.goalEdit();
   }
 
   renderData() {
@@ -19,7 +23,14 @@ class GoalList extends Component {
       return out;
     } else {
       for (let key in this.props.goals) {
-        out.push(<Goal key={key} onPress={this.onGoalPress} value={this.props.goals[key].title} />)
+        out.push(
+          <Goal key={key}
+            onPress={this.onGoalPress}
+            title={this.props.goals[key].title}
+            resetForm={this.props.resetForm.bind(this)}
+            goals={this.props.goals}
+          />
+        );
       }
       return out;
     }
@@ -29,17 +40,11 @@ class GoalList extends Component {
 		return (
 			<View style={{ flex: 1 }}>
 				<List data={this.renderData()}/>
-				<RoundButton
+        <RoundButton
 					text="+"
 					onPress={ this.createGoal.bind(this) }
-					size='50'
-					fontSize='25'
 					color='#FFD600'
-					fontColor='white'
-					style= {{
-						bottom: 20,
-						right: 20
-					}}
+          position='bottom-right'
 				/>
 			</View>
 		);
@@ -51,4 +56,4 @@ const mapStateToProps = state => {
   return { goals };
 };
 
-export default connect(mapStateToProps)(GoalList);
+export default connect(mapStateToProps, { resetForm })(GoalList);

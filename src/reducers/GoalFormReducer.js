@@ -9,7 +9,11 @@ export default (state = INITIAL_STATE, action) => {
 		case TITLE_CHANGED:
 			return { ...state, title: action.payload };
     case RESET_FORM:
-      return { ...state, ...action.payload };
+      if (action.payload == null) {
+        return { ...INITIAL_STATE };
+      } else {
+        return { ...state, ...action.payload };
+      }
 		default:
 			return state;
 	}

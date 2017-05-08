@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { List, InputCard } from './common';
+import InputCard from './common/InputCard';
+import List from './common/List';
 import { connect } from 'react-redux';
 import { titleChanged } from '../actions/formActions';
 
@@ -11,7 +12,11 @@ class GoalForm extends Component {
 
   renderData() {
     return [
-      <InputCard key='title' onChangeText={this.onTitleChangeText.bind(this)} placeholder='Buy a new graphics card'/>
+      <InputCard key='title'
+        onChangeText={this.onTitleChangeText.bind(this)}
+        placeholder='Buy a new graphics card'
+        value={this.props.goalForm.title}
+      />
     ];
   }
 
@@ -25,9 +30,9 @@ class GoalForm extends Component {
 }
 
 const mapStateToProps = (state) => {
-  let { goals } = state;
+  let { goals, goalForm } = state;
 
-  return { goals };
+  return { goals, goalForm };
 };
 
 export default connect(mapStateToProps, { titleChanged })(GoalForm);

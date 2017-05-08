@@ -7,7 +7,7 @@ export const titleChanged = text => {
 	};
 };
 
-export const resetForm = (newState = {}) => {
+export const resetForm = (newState = null) => {
   return {
     type: RESET_FORM,
     payload: newState

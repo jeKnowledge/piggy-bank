@@ -1,1 +1,1 @@
-export const headerColor = '#3f51b5';
+export const mainColor = '#3f51b5';
