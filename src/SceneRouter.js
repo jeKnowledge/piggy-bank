@@ -1,6 +1,6 @@
 import { Router, Scene } from 'react-native-router-flux';
 import React, { Component } from 'react';
-import { GoalShow, GoalCreate, GoalEdit } from './scenes';
+import { GoalShow, GoalCreate, GoalDetails } from './scenes';
 import { Platform } from 'react-native';
 import { mainColor } from './Theme';
 
@@ -10,7 +10,7 @@ export default class SceneRouter extends Component {
       <Router>
         <Scene key='goalShow' component={GoalShow} title='Piggy Bank' { ...componentStyle } />
         <Scene key='goalCreate' component={GoalCreate} title='New Goal' { ...componentStyle } />
-        <Scene key='goalEdit' component={GoalEdit} title='Edit Goal' { ...componentStyle } />
+        <Scene key='goalEdit' component={GoalDetails} title='Goal Details' { ...componentStyle } />
       </Router>
     );
   }

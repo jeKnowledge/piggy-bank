@@ -12,9 +12,10 @@ class GoalForm extends Component {
 
   renderData() {
     return [
-      <InputCard key='title'
+      <InputCard key='Title'
+        title='Name'
         onChangeText={this.onTitleChangeText.bind(this)}
-        placeholder='Buy a new graphics card'
+        placeholder='Insert a goal title'
         value={this.props.goalForm.title}
       />
     ];

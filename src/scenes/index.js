@@ -1,5 +1,5 @@
 import GoalCreate from './GoalCreate';
 import GoalShow from './GoalShow';
-import GoalEdit from './GoalEdit';
+import GoalDetails from './GoalDetails';
 
-export { GoalCreate, GoalShow, GoalEdit };
+export { GoalCreate, GoalShow, GoalDetails };

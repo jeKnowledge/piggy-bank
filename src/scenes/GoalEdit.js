@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { View } from 'react-native';
-import { Button, GoalForm } from '../components';
+import { GoalForm } from '../components';
 import { connect } from 'react-redux';
-import { updateGoals, deleteGoal } from '../actions/goalsActions';
+import { updateGoals } from '../actions/goalsActions';
 import { resetForm } from '../actions/formActions';
 import { Actions } from 'react-native-router-flux';
 import { sha256 } from 'hash.js';
+import { Button } from 'react-native-elements';
+import { buttonColor } from '../Theme';
 
 class GoalEdit extends Component {
   componentWillMount() {
@@ -19,24 +21,14 @@ class GoalEdit extends Component {
 		Actions.pop();
 	}
 
-  deleteGoal() {
-    this.props.deleteGoal(this.originalGoalCode);
-    this.props.resetForm();
-		Actions.pop();
-  }
-
 	render() {
 		return (
 			<View style={{ flex: 1 }}>
         <GoalForm />
 				<Button
-					text='Save'
+          backgroundColor={buttonColor}
+					title='Save'
 					onPress={ this.updateGoal.bind(this) }
-          position='bottom'
-				/>
-        <Button
-					text='Delete'
-					onPress={ this.deleteGoal.bind(this) }
           position='bottom'
 				/>
 			</View>
@@ -50,4 +42,4 @@ const mapStateToProps = (state) => {
   return { goalForm, goals };
 };
 
-export default connect(mapStateToProps, { updateGoals, resetForm, deleteGoal }) (GoalEdit);
+export default connect(mapStateToProps, { updateGoals, resetForm }) (GoalEdit);
