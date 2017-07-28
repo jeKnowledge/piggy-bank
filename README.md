@@ -1,5 +1,9 @@
 # Piggy Bank
 
-**Status** Suspended
+**Status**  Suspended
 
-Reach your goals breaking adictions.
+**Summary** Reach your goals breaking adictions.
+
+**Platforms** Android and IOS
+
+**Technology**  React Native
